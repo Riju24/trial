@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	Welcome 
+	<h2> Welcome ${usernmae} to the website.</h2>
 </body>
 </html>

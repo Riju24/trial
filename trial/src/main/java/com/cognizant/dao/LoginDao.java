@@ -10,17 +10,15 @@ import com.cognizant.model.User;
 @Repository
 public class LoginDao {
 
+	private String admin_name="admin";
+	private String admin_password="pa55w0rd";
+	
 	@Autowired
 	JdbcTemplate jdbcTemplate;
 	
 	public boolean login(String password)
 	{
-		String sql="Select * from User where name='admin";
-		
-		List<User> user = jdbcTemplate.query(sql,(rs,x)-> new User(rs.getString(0),rs.getString(1)));
-	
-		String pass = user.get(0).getPassword();
-		if(password.contentEquals(pass))
+		if(password.contentEquals(admin_password))
 		{
 			return true;
 		}

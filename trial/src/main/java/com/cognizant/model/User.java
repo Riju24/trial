@@ -2,10 +2,11 @@ package com.cognizant.model;
 
 public class User {
 
+	private String id;
 	private String name;
 	private String password;
 	
-	public void  setName(String name)
+	public void setName(String name)
 	{
 		this.name = name;
 	}
@@ -30,10 +31,19 @@ public class User {
 		super();
 	}
 	
-	public User(String name, String password)
+	public User(String id,String name, String password)
 	{
+		this.setId(id);
 		this.name= name;
 		this.password = password;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 	
 }
