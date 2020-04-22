@@ -20,7 +20,7 @@ public class UserLoginDao {
 		
 		List<User> users = jdbcTemplate.query(sql,new Object[] {user.getId(),user.getName()},(rs,x) ->
 													
-				new User(rs.getString(0),rs.getString(1),rs.getString(2))
+				new User(rs.getString(1),rs.getString(2),rs.getString(3))
 				
 				);
 		
