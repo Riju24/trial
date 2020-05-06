@@ -61,7 +61,7 @@ public class TrialController {
 		String pass= request.getParameter("password");
 		if(loginDao.login(pass))
 		{
-			mv.setViewName("welcome");
+			mv.setViewName("register");
 			mv.addObject("username", "Admin");
 			
 			return mv;
@@ -96,7 +96,7 @@ public class TrialController {
 		
 		if(userLoginDao.userlogin(user))
 		{
-			mv.setViewName("welcome");
+			mv.setViewName("register");
 			mv.addObject("username", user.getName());
 		}
 		else
@@ -107,6 +107,15 @@ public class TrialController {
 		
 		return mv;
 		
+	}
+	
+	@RequestMapping(value="register")
+	public ModelAndView registration()
+	{
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("register");
+		return mv;
 	}
 	
 
