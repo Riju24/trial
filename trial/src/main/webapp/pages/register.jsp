@@ -14,24 +14,24 @@
 	<div class="jumbotron">
 		<h3>Registration Page</h3>
 		<div class="col-lg-6 col-lg-offset-3 border">
-			<form>
+			<form method="POST" action="/register">
 				<div class="row">
 					<div class="col">
 						<div class="form-group">
-							<label for=name">Name:</label> <input type="text"
+							<label for=name">Name:</label> <input type="text" name="name"
 								class="form-control" id="name" />
 						</div>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col">
-						<label for="company">Company Name:</label> <input type="text"
+						<label for="company">Company Name:</label> <input type="text" name="company"
 							class="form-control" id="company" />
 					</div>
 				</div>
 				<div class="row">
 					<div class="col">
-						<label for="phnumber">Mobile Number:</label> <input type="text"
+						<label for="phnumber">Mobile Number:</label> <input type="text" name="mobile"
 							class="form-control" id="phnumber" />
 					</div>
 				</div>
@@ -52,7 +52,7 @@
 					<div class="col-4">
 						<div class="form-group">
 							<label for="country">Country</label> 
-							<select id="country"
+							<select id="country" name="country"
 								class="form-control">
 								<option selected>Choose...</option>
 							</select>
@@ -61,7 +61,7 @@
 					<div class="col-4">
 						<div class="form-group">
 							<label for="state">State</label> 
-							<select id="state"
+							<select id="state" name="state"
 								class="form-control">
 								<option selected>Choose...</option>
 							</select>
@@ -71,14 +71,14 @@
 					<div class="col-4">
 						<div class="form-group">
 							<label for="city">City</label> 
-							<select id="city"
+							<select id="city" name="city"
 								class="form-control">
 								<option selected>Choose...</option>
 							</select>
 						</div>
 					</div>
 				</div>
-				<button type="button" class="btn btn-success">Save</button>
+				<input type="submit" class="btn btn-success">Save</button>
 			</form>
 		</div>
 	</div>

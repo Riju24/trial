@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.cognizant.dao.DetailsDao;
 import com.cognizant.dao.LoginDao;
 import com.cognizant.dao.UserLoginDao;
+import com.cognizant.model.Details;
 import com.cognizant.model.User;
 import com.cognizant.validation.UserValidation;
 
@@ -30,6 +32,8 @@ public class TrialController {
 	@Autowired
 	UserValidation userValidation;
 	
+	@Autowired
+	DetailsDao detailsDao;
 	
 	
 	@InitBinder
@@ -96,8 +100,16 @@ public class TrialController {
 		
 		if(userLoginDao.userlogin(user))
 		{
+			if(detailsDao.userPresent(user.getName()))
+			{
+				mv.setViewName("welcome");
+				mv.addObject("username",user.getName());
+			}
+			else 
+			{
 			mv.setViewName("register");
 			mv.addObject("username", user.getName());
+			}
 		}
 		else
 		{
@@ -115,6 +127,17 @@ public class TrialController {
 		ModelAndView mv = new ModelAndView();
 		
 		mv.setViewName("register");
+		return mv;
+	}
+	
+	@RequestMapping(value="register",method=RequestMethod.POST)
+	public ModelAndView register(@ModelAttribute("details") Details details)
+	{
+		ModelAndView mv = new ModelAndView();
+		
+		
+		mv.addObject("username",details.getName());
+		mv.setViewName("welcome");
 		return mv;
 	}
 	
